@@ -33,13 +33,13 @@ public class ExpenseController {
 	}
 	
 	@GetMapping("/expenses/{id}")
-	public Expense getExpenseById(@PathVariable Long id){
+	public Expense getExpenseById(@PathVariable Integer id){
 		return expenseService.getExpenseById(id);
 	}
 	
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	@DeleteMapping("/expenses")
-	public void deleteExpenseById(@RequestParam Long id) {
+	public void deleteExpenseById(@RequestParam Integer id) {
 		expenseService.deleteExpenseById(id);
 	}
 	
@@ -50,7 +50,7 @@ public class ExpenseController {
 	}
 	
 	@PutMapping("/expenses/{id}")
-	public Expense updateExpenseDetails(@RequestBody Expense expense, @PathVariable Long id){
+	public Expense updateExpenseDetails(@RequestBody Expense expense, @PathVariable Integer id){
 		return expenseService.updateExpenseDetails(id, expense);
 	}
 	

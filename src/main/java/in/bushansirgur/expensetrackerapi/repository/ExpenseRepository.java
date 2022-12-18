@@ -11,17 +11,17 @@ import org.springframework.stereotype.Repository;
 import in.bushansirgur.expensetrackerapi.entity.Expense;
 
 @Repository
-public interface ExpenseRepository extends JpaRepository<Expense, Long> {
+public interface ExpenseRepository extends JpaRepository<Expense, Integer> {
 	
-	Page<Expense> findByUserIdAndCategory(Long userId, String category, Pageable page);
+	Page<Expense> findByUserIdAndCategory(Integer userId, String category, Pageable page);
 	
-	Page<Expense> findByUserIdAndNameContaining(Long userId, String keyword, Pageable page);
+	Page<Expense> findByUserIdAndNameContaining(Integer userId, String keyword, Pageable page);
 	
-	Page<Expense> findByUserIdAndDateBetween(Long userId, Date startDate, Date endDate, Pageable page);
+	Page<Expense> findByUserIdAndDateBetween(Integer userId, Date startDate, Date endDate, Pageable page);
 	
-	Page<Expense> findByUserId(Long userId, Pageable page);
+	Page<Expense> findByUserId(Integer userId, Pageable page);
 	
-	Optional<Expense> findByUserIdAndId(Long userId, Long expenseId);
+	Optional<Expense> findByUserIdAndId(Integer userId, Integer expenseId);
 
 	
 }

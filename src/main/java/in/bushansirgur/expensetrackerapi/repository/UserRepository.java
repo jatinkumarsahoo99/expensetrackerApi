@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import in.bushansirgur.expensetrackerapi.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	Boolean existsByEmail(String email);
 	

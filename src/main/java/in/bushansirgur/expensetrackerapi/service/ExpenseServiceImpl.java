@@ -28,7 +28,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 	}
 
 	@Override
-	public Expense getExpenseById(Long id){
+	public Expense getExpenseById(Integer id){
 		Optional<Expense> expense = expenseRepo.findByUserIdAndId(userService.getLoggedInUser().getId(), id);
 		if (expense.isPresent()) {
 			return expense.get();
@@ -37,7 +37,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 	}
 
 	@Override
-	public void deleteExpenseById(Long id) {
+	public void deleteExpenseById(Integer id) {
 		Expense expense = getExpenseById(id);
 		expenseRepo.delete(expense);
 	}
@@ -49,7 +49,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 	}
 
 	@Override
-	public Expense updateExpenseDetails(Long id, Expense expense){
+	public Expense updateExpenseDetails(Integer id, Expense expense){
 		Expense existingExpense = getExpenseById(id);
 		existingExpense.setName(expense.getName() != null ? expense.getName() : existingExpense.getName());
 		existingExpense.setDescription(expense.getDescription() != null ? expense.getDescription() : existingExpense.getDescription());
